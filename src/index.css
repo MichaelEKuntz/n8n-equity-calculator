@@ -1,0 +1,55 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+body {
+  background-color: #FAF5F0;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.tabular-nums {
+  font-variant-numeric: tabular-nums;
+}
+
+/* Print stylesheet */
+@media print {
+  body {
+    background-color: white !important;
+    -webkit-print-color-adjust: exact;
+    print-color-adjust: exact;
+  }
+
+  .print\\:hidden {
+    display: none !important;
+  }
+
+  /* Hide interactive controls */
+  input[type="number"],
+  input[type="range"],
+  button,
+  [role="slider"] {
+    display: none !important;
+  }
+
+  /* Show values as text instead */
+  .print\\:block {
+    display: block !important;
+  }
+
+  /* Clean page breaks */
+  .break-inside-avoid {
+    break-inside: avoid;
+  }
+
+  /* Remove shadows and reduce borders for print */
+  [class*="shadow"] {
+    box-shadow: none !important;
+  }
+
+  /* A4 page sizing */
+  @page {
+    size: A4;
+    margin: 1.5cm;
+  }
+}
