@@ -6,6 +6,9 @@ export function Footer() {
         taxes, social security contributions, and other fees. Actual values may differ. Virtual
         shares (VSOPs) only pay out in a qualifying liquidity event.
       </p>
+      <p className="hidden print:block text-xs text-n8n-text-secondary mt-2">
+        Generated on {new Date().toISOString().split('T')[0]}
+      </p>
     </footer>
   )
 }

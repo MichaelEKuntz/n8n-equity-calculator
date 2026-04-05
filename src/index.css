@@ -20,31 +20,53 @@ body {
     print-color-adjust: exact;
   }
 
-  .print\\:hidden {
+  .print\:hidden {
     display: none !important;
   }
 
-  /* Hide interactive controls */
-  input[type="number"],
+  .print\:block {
+    display: block !important;
+  }
+
+  /* Hide interactive controls but keep display values */
+  input[type="text"],
+  input[type="number"] {
+    border: none !important;
+    background: transparent !important;
+    padding: 0 !important;
+    box-shadow: none !important;
+    outline: none !important;
+  }
+
   input[type="range"],
-  button,
   [role="slider"] {
     display: none !important;
   }
 
-  /* Show values as text instead */
-  .print\\:block {
-    display: block !important;
+  /* Hide action buttons (add scenario, remove, share, export) */
+  button {
+    display: none !important;
   }
 
-  /* Clean page breaks */
-  .break-inside-avoid {
+  /* Page breaks between major sections */
+  .space-y-6 > * {
     break-inside: avoid;
   }
 
-  /* Remove shadows and reduce borders for print */
+  /* Remove shadows and card borders for cleaner print */
   [class*="shadow"] {
     box-shadow: none !important;
+  }
+
+  /* Ensure charts print at full width */
+  .recharts-responsive-container {
+    width: 100% !important;
+  }
+
+  /* Ensure SVG charts are visible with colors */
+  svg {
+    print-color-adjust: exact !important;
+    -webkit-print-color-adjust: exact !important;
   }
 
   /* A4 page sizing */
