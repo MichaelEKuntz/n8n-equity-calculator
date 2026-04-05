@@ -20,11 +20,11 @@ export function generateId(): string {
 }
 
 export const DEFAULT_SCENARIOS: Scenario[] = [
-  { id: generateId(), valuation: 2_200_000_000, label: 'EUR 2,2B', rounds: 0, dilutionPerRound: 0.10, isCurrent: true },
-  { id: generateId(), valuation: 5_000_000_000, label: 'EUR 5,0B', rounds: 1, dilutionPerRound: 0.10, isCurrent: false },
-  { id: generateId(), valuation: 10_000_000_000, label: 'EUR 10,0B', rounds: 1, dilutionPerRound: 0.10, isCurrent: false },
-  { id: generateId(), valuation: 20_000_000_000, label: 'EUR 20,0B', rounds: 2, dilutionPerRound: 0.10, isCurrent: false },
-  { id: generateId(), valuation: 50_000_000_000, label: 'EUR 50,0B', rounds: 2, dilutionPerRound: 0.10, isCurrent: false },
+  { id: generateId(), valuation: 2_200_000_000, label: 'EUR 2.2B', rounds: 0, dilutionPerRound: 0.10, isCurrent: true },
+  { id: generateId(), valuation: 5_000_000_000, label: 'EUR 5.0B', rounds: 1, dilutionPerRound: 0.10, isCurrent: false },
+  { id: generateId(), valuation: 10_000_000_000, label: 'EUR 10.0B', rounds: 1, dilutionPerRound: 0.10, isCurrent: false },
+  { id: generateId(), valuation: 20_000_000_000, label: 'EUR 20.0B', rounds: 2, dilutionPerRound: 0.10, isCurrent: false },
+  { id: generateId(), valuation: 50_000_000_000, label: 'EUR 50.0B', rounds: 2, dilutionPerRound: 0.10, isCurrent: false },
 ]
 
 export const CHART_COLORS = {
