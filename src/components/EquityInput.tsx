@@ -49,7 +49,7 @@ export function EquityInput({
                 if (!isNaN(num)) onAwardValueChange(num)
                 else if (raw === '') onAwardValueChange(0)
               }}
-              className="mt-1.5 w-full rounded-md border border-n8n-border bg-n8n-surface px-4 py-3 text-xl font-semibold tabular-nums text-n8n-text focus:outline-none focus:ring-2 focus:ring-n8n-pink focus:border-transparent"
+              className="mt-1.5 w-full rounded-md border border-n8n-border bg-n8n-surface px-4 py-3 text-xl font-semibold tabular-nums text-n8n-text focus:outline-none focus:ring-2 focus:ring-n8n-purple focus:border-transparent"
             />
           </div>
 
@@ -67,9 +67,9 @@ export function EquityInput({
                 if (!isNaN(num)) onSharePriceChange(num)
                 else if (e.target.value === '') onSharePriceChange(0)
               }}
-              className="mt-1.5 w-full rounded-md border border-n8n-border bg-n8n-surface px-4 py-3 text-xl font-semibold tabular-nums text-n8n-text focus:outline-none focus:ring-2 focus:ring-n8n-pink focus:border-transparent"
+              className="mt-1.5 w-full rounded-md border border-n8n-border bg-n8n-surface px-4 py-3 text-xl font-semibold tabular-nums text-n8n-text focus:outline-none focus:ring-2 focus:ring-n8n-purple focus:border-transparent"
             />
-            <p className="text-xs text-n8n-text-secondary mt-1">Series C price per share</p>
+            <p className="text-xs text-n8n-text-faint mt-1">Series C price per share</p>
           </div>
 
           <div>
@@ -86,57 +86,30 @@ export function EquityInput({
                 if (!isNaN(num)) onStrikePriceChange(num)
                 else if (e.target.value === '') onStrikePriceChange(0)
               }}
-              className="mt-1.5 w-full rounded-md border border-n8n-border bg-n8n-surface px-4 py-3 text-xl font-semibold tabular-nums text-n8n-text focus:outline-none focus:ring-2 focus:ring-n8n-pink focus:border-transparent"
+              className="mt-1.5 w-full rounded-md border border-n8n-border bg-n8n-surface px-4 py-3 text-xl font-semibold tabular-nums text-n8n-text focus:outline-none focus:ring-2 focus:ring-n8n-purple focus:border-transparent"
             />
-            <p className="text-xs text-n8n-text-secondary mt-1">Your exercise price</p>
+            <p className="text-xs text-n8n-text-faint mt-1">Your exercise price</p>
           </div>
         </div>
 
         {/* Derived info rows */}
         <div className="grid grid-cols-1 sm:grid-cols-2 gap-x-8 gap-y-3 text-sm">
-          <InfoRow
-            label="Number of virtual shares"
-            value={formatShareCount(shares)}
-          />
-          <InfoRow
-            label="Actual award value"
-            value={formatEur(actualAwardValue)}
-            accent
-          />
-          <InfoRow
-            label="Exercise cost"
-            value={formatEur(exerciseCost)}
-            sub="Deducted from payout at exit"
-          />
-          <InfoRow
-            label="Vesting"
-            value={`${VESTING_MONTHS} months`}
-            sub={`${CLIFF_MONTHS}-month cliff`}
-          />
+          <InfoRow label="Number of virtual shares" value={formatShareCount(shares)} />
+          <InfoRow label="Actual award value" value={formatEur(actualAwardValue)} accent />
+          <InfoRow label="Exercise cost" value={formatEur(exerciseCost)} sub="Deducted from payout at exit" />
+          <InfoRow label="Vesting" value={`${VESTING_MONTHS} months`} sub={`${CLIFF_MONTHS}-month cliff`} />
         </div>
       </CardContent>
     </Card>
   )
 }
 
-function InfoRow({
-  label,
-  value,
-  sub,
-  accent,
-}: {
-  label: string
-  value: string
-  sub?: string
-  accent?: boolean
-}) {
+function InfoRow({ label, value, sub, accent }: { label: string; value: string; sub?: string; accent?: boolean }) {
   return (
     <div>
       <span className="text-n8n-text-secondary">{label}</span>
-      <div className={`font-medium tabular-nums ${accent ? 'text-n8n-pink' : 'text-n8n-text'}`}>
-        {value}
-      </div>
-      {sub && <span className="text-xs text-n8n-text-secondary">{sub}</span>}
+      <div className={`font-medium tabular-nums ${accent ? 'text-n8n-pink' : 'text-n8n-text'}`}>{value}</div>
+      {sub && <span className="text-xs text-n8n-text-faint">{sub}</span>}
     </div>
   )
 }

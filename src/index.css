@@ -3,9 +3,16 @@
 @tailwind utilities;
 
 body {
-  background-color: #FAF5F0;
+  background-color: #0E0918;
+  color: #F1F0F5;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  font-feature-settings: "cv02", "cv03", "cv04", "cv11";
+}
+
+::selection {
+  background: rgba(124, 58, 237, 0.3);
+  color: #F1F0F5;
 }
 
 .tabular-nums {
@@ -16,6 +23,7 @@ body {
 @media print {
   body {
     background-color: white !important;
+    color: #040506 !important;
     -webkit-print-color-adjust: exact;
     print-color-adjust: exact;
   }
@@ -28,7 +36,6 @@ body {
     display: block !important;
   }
 
-  /* Hide interactive controls but keep display values */
   input[type="text"],
   input[type="number"] {
     border: none !important;
@@ -36,6 +43,7 @@ body {
     padding: 0 !important;
     box-shadow: none !important;
     outline: none !important;
+    color: #040506 !important;
   }
 
   input[type="range"],
@@ -43,33 +51,27 @@ body {
     display: none !important;
   }
 
-  /* Hide action buttons (add scenario, remove, share, export) */
   button {
     display: none !important;
   }
 
-  /* Page breaks between major sections */
   .space-y-6 > * {
     break-inside: avoid;
   }
 
-  /* Remove shadows and card borders for cleaner print */
   [class*="shadow"] {
     box-shadow: none !important;
   }
 
-  /* Ensure charts print at full width */
   .recharts-responsive-container {
     width: 100% !important;
   }
 
-  /* Ensure SVG charts are visible with colors */
   svg {
     print-color-adjust: exact !important;
     -webkit-print-color-adjust: exact !important;
   }
 
-  /* A4 page sizing */
   @page {
     size: A4;
     margin: 1.5cm;

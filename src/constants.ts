@@ -28,11 +28,11 @@ export const DEFAULT_SCENARIOS: Scenario[] = [
 ]
 
 export const CHART_COLORS = {
-  navy: '#1E293B',
+  slate: '#94A3B8',
   blue: '#3B82F6',
   pink: '#EA4B71',
   purple: '#7C3AED',
   flame: '#EE4F27',
   amber: '#F59E0B',
-  grey: '#D1D5DB',
+  grey: '#4A4865',
 } as const

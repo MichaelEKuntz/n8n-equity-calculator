@@ -51,15 +51,15 @@ export function WaterfallChart({ scenarios, shares, actualAwardValue, sharePrice
             <XAxis
               type="number"
               tickFormatter={(v: number) => formatEurCompact(v)}
-              tick={{ fontSize: 11, fill: '#6B7280' }}
-              axisLine={{ stroke: '#E8E0F0' }}
+              tick={{ fontSize: 11, fill: '#9490AD' }}
+              axisLine={{ stroke: '#2E2B4A' }}
               tickLine={false}
             />
             <YAxis
               type="category"
               dataKey="name"
               width={80}
-              tick={{ fontSize: 12, fill: '#1A1A2E' }}
+              tick={{ fontSize: 12, fill: '#F1F0F5' }}
               axisLine={false}
               tickLine={false}
             />
@@ -69,29 +69,30 @@ export function WaterfallChart({ scenarios, shares, actualAwardValue, sharePrice
                 name === 'exerciseCost' ? 'Exercise Cost' : 'Net Equity Value',
               ]}
               contentStyle={{
-                backgroundColor: '#FFFFFF',
-                border: '1px solid #E8E0F0',
+                backgroundColor: '#252540',
+                border: '1px solid #2E2B4A',
                 borderRadius: '8px',
                 fontSize: '12px',
+                color: '#F1F0F5',
               }}
             />
             <Bar dataKey="exerciseCost" stackId="a" fill={CHART_COLORS.grey} radius={[0, 0, 0, 0]}>
               {data.map((entry, index) => (
-                <Cell key={index} fill={entry.isCurrent ? '#E5E7EB' : CHART_COLORS.grey} />
+                <Cell key={index} fill={entry.isCurrent ? '#3A3352' : CHART_COLORS.grey} />
               ))}
             </Bar>
-            <Bar dataKey="netValue" stackId="a" fill={CHART_COLORS.navy} radius={[0, 4, 4, 0]}>
+            <Bar dataKey="netValue" stackId="a" fill={CHART_COLORS.slate} radius={[0, 4, 4, 0]}>
               {data.map((entry, index) => (
                 <Cell
                   key={index}
-                  fill={entry.isCurrent ? CHART_COLORS.pink : CHART_COLORS.navy}
+                  fill={entry.isCurrent ? CHART_COLORS.pink : CHART_COLORS.slate}
                 />
               ))}
               <LabelList
                 dataKey="netValue"
                 position="right"
                 formatter={(v: number) => formatEurCompact(v)}
-                style={{ fontSize: 11, fontWeight: 600, fill: '#1A1A2E' }}
+                style={{ fontSize: 11, fontWeight: 600, fill: '#F1F0F5' }}
               />
             </Bar>
           </BarChart>

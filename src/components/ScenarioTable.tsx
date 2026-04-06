@@ -140,7 +140,7 @@ function ScenarioRow({
     <tr
       className={`border-b border-n8n-border/50 ${
         isCurrent ? 'border-l-4 border-l-n8n-pink' : ''
-      } ${index % 2 === 1 ? 'bg-n8n-bg/50' : ''}`}
+      } ${index % 2 === 1 ? 'bg-n8n-zebra' : ''}`}
     >
       {/* Valuation */}
       <td className="py-2.5 pr-4">

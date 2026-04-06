@@ -35,29 +35,29 @@ export function VestingChart({ shares, sharePrice, strikePrice }: VestingChartPr
           <AreaChart data={data} margin={{ top: 30, right: 30, left: 20, bottom: 20 }}>
             <defs>
               <linearGradient id="vestingGradient" x1="0" y1="0" x2="0" y2="1">
-                <stop offset="5%" stopColor="#1E293B" stopOpacity={0.15} />
-                <stop offset="95%" stopColor="#1E293B" stopOpacity={0.02} />
+                <stop offset="5%" stopColor="#94A3B8" stopOpacity={0.25} />
+                <stop offset="95%" stopColor="#94A3B8" stopOpacity={0.02} />
               </linearGradient>
             </defs>
             <XAxis
               dataKey="month"
-              tick={{ fontSize: 11, fill: '#6B7280' }}
-              axisLine={{ stroke: '#E8E0F0' }}
+              tick={{ fontSize: 11, fill: '#9490AD' }}
+              axisLine={{ stroke: '#2E2B4A' }}
               tickLine={false}
-              label={{ value: 'Month', position: 'insideBottom', offset: -10, fontSize: 11, fill: '#6B7280' }}
+              label={{ value: 'Month', position: 'insideBottom', offset: -10, fontSize: 11, fill: '#9490AD' }}
             />
             <YAxis
               yAxisId="shares"
-              tick={{ fontSize: 11, fill: '#6B7280' }}
+              tick={{ fontSize: 11, fill: '#9490AD' }}
               axisLine={false}
               tickLine={false}
               tickFormatter={(v: number) => formatShareCount(v)}
-              label={{ value: 'Shares', angle: -90, position: 'insideLeft', offset: -5, fontSize: 11, fill: '#6B7280' }}
+              label={{ value: 'Shares', angle: -90, position: 'insideLeft', offset: -5, fontSize: 11, fill: '#9490AD' }}
             />
             <YAxis
               yAxisId="eur"
               orientation="right"
-              tick={{ fontSize: 11, fill: '#6B7280' }}
+              tick={{ fontSize: 11, fill: '#9490AD' }}
               axisLine={false}
               tickLine={false}
               tickFormatter={(v: number) => `€${formatShareCount(v)}`}
@@ -68,7 +68,7 @@ export function VestingChart({ shares, sharePrice, strikePrice }: VestingChartPr
                 const d = payload[0]?.payload as (typeof data)[0] | undefined
                 if (!d) return null
                 return (
-                  <div className="bg-white border border-n8n-border rounded-card p-3 shadow-card text-xs">
+                  <div className="bg-n8n-surface-elevated border border-n8n-border rounded-card p-3 shadow-card text-xs">
                     <p className="font-semibold text-n8n-text">Month {d.month}</p>
                     <p className="text-n8n-text-secondary mt-1">
                       Shares vested: <span className="font-medium tabular-nums text-n8n-text">{formatShareCount(d.sharesVested)}</span>
@@ -86,14 +86,14 @@ export function VestingChart({ shares, sharePrice, strikePrice }: VestingChartPr
             <ReferenceLine
               yAxisId="shares"
               x={CLIFF_MONTHS}
-              stroke="#EA4B71"
+              stroke="#7C3AED"
               strokeDasharray="4 4"
               strokeWidth={1.5}
               label={{
                 value: '1-year cliff',
                 position: 'insideTopRight',
                 fontSize: 10,
-                fill: '#EA4B71',
+                fill: '#7C3AED',
                 fontWeight: 600,
                 offset: 10,
               }}
@@ -101,14 +101,14 @@ export function VestingChart({ shares, sharePrice, strikePrice }: VestingChartPr
             <ReferenceLine
               yAxisId="shares"
               x={VESTING_MONTHS}
-              stroke="#1E293B"
+              stroke="#9490AD"
               strokeDasharray="4 4"
               strokeWidth={1}
               label={{
                 value: 'Fully vested',
                 position: 'insideTopLeft',
                 fontSize: 10,
-                fill: '#1A1A2E',
+                fill: '#9490AD',
                 fontWeight: 600,
                 offset: 10,
               }}
@@ -117,7 +117,7 @@ export function VestingChart({ shares, sharePrice, strikePrice }: VestingChartPr
               yAxisId="shares"
               type="stepAfter"
               dataKey="sharesVested"
-              stroke="#1E293B"
+              stroke="#94A3B8"
               strokeWidth={2}
               fill="url(#vestingGradient)"
             />
